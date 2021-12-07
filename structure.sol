@@ -25,29 +25,17 @@ struct S_wind{
     int dec_pow;
 };
 
-struct S_clouds{
-    string id;
-    int percent;
-};
-
 
 struct location{
     int altitude;
-    int latitude;
-    int lat_dec_pow;
-    int longitude;
-    int lon_dec_pow;
+    S_standard latitude;
+    S_standard longitude;
     uint timestamp
     S_standard temp;
     S_standard humidity;
     S_standard pressure;
     S_standard dewpointTemp;
     S_wind wind;
-    S_clouds low;
-    S_clouds medium;
-    S_clouds high;
-    int fog;
-    int fog_dec_pow
-    int cloudiness;
-    int cloud_dec_pow;
+    S_standard fog;
+    S_standard cloudiness;
 };
