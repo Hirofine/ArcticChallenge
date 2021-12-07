@@ -14,26 +14,30 @@
 */
 struct S_standard{
     string units;
-    float value;
-}
+    int value;
+    int dec_pow;
+};
 
 struct S_wind{
-    float direction_deg;
+    int direction_deg;
     string direction_card;
-    float speed;
-}
+    int speed;
+    int dec_pow;
+};
 
-struc S_clouds{
+struct S_clouds{
     string id;
-    float percent;
-}
+    int percent;
+};
 
 
 struct location{
-    float altitude;
-    float latitude;
-    float longitude;
-    int timestamp
+    int altitude;
+    int latitude;
+    int lat_dec_pow;
+    int longitude;
+    int lon_dec_pow;
+    uint timestamp
     S_standard temp;
     S_standard humidity;
     S_standard pressure;
@@ -42,6 +46,8 @@ struct location{
     S_clouds low;
     S_clouds medium;
     S_clouds high;
-    float fog
-    float cloudiness;
-}
+    int fog;
+    int fog_dec_pow
+    int cloudiness;
+    int cloud_dec_pow;
+};
