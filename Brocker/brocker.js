@@ -21,27 +21,19 @@ let bytecode = '608060405234801561001057600080fd5b5061058e806100206000396000f3fe
 let conAddress = "0xEE4fb72da9AeaEc2D8A1E4a21fC9f3E0F507Dd3E"
 
 //Contract object and account info
-let deploy_contract = new web3.eth.Contract(JSON.parse(abi),conAddress);
+let deploy_contract = new web3.eth.Contract(JSON.parse(abi), conAddress);
 let account = '0xd5a84c66d68001aBbe27569A1df9C83D4f1d1F4c';
 
-// Function Parameter
-let rand1 = Math.floor(Math.random()*-5);
-let rand2 = Math.floor(Math.random()*99);
-let rand3 = Math.floor(Math.random()*-5);
-output = [rand1,rand2,rand3,Date.now()];
-
-// Read the port data
+// Read the port data from arduino
 port.on("open", () => {
 	console.log('serial port open');
-  });
-  
-  parser.on('data', data =>{
-  //  console.log('got word from arduino:', data);
+});
+
+parser.on('data', data => {
 	arduino_data = data.split(" ");
-	output = [parseInt(arduino_data[0]),parseInt(arduino_data[1]),parseInt(arduino_data[2]),Date.now()]
-	console.log(output);
-// Post value to blockchain 
-  deploy_contract.methods.setval(output).send({from: account,gas:813325});
-  console.log("this was published;"+String(output));
-  });
+	output = [parseInt(arduino_data[0]), parseInt(arduino_data[1]), parseInt(arduino_data[2]), Date.now()]
+	// Send data to blovkchain contract
+	deploy_contract.methods.setval(output).send({ from: account, gas: 813325 });
+	console.log("this was published;" + String(output));
+});
 
