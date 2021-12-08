@@ -1,19 +1,14 @@
 {
-  "name": "arcticchallenge",
+  "name": "brocker_blockchain",
   "version": "1.0.0",
   "description": "",
   "main": "brocker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hirofine/ArcticChallenge.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Hirofine/ArcticChallenge/issues"
-  },
-  "homepage": "https://github.com/Hirofine/ArcticChallenge#readme"
+  "dependencies": {
+    "web3": "^1.6.1"
+  }
 }
