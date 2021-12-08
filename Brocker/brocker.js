@@ -36,4 +36,3 @@ parser.on('data', data => {
 	deploy_contract.methods.setval(output).send({ from: account, gas: 813325 });
 	console.log("this was published;" + String(output));
 });
-
