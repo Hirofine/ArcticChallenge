@@ -59,6 +59,6 @@ void loop() {
   float hif = dht.computeHeatIndex(f, h);
   // Compute heat index in Celsius (isFahreheit = false)
   float hic = dht.computeHeatIndex(t, h, false);
-  String res = "{[\"Celsius\","+String(t)+"],[\"Percent\"," +String(h)+"],[\"Celsius\","+String(hic)+"]}";
+  String res = String(t)+" "+String(h)+" "+String(hic) +" ";
   Serial.println(res);
 }
