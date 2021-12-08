@@ -231,28 +231,28 @@ let deploy_contract = new web3.eth.Contract(JSON.parse(abi));
 web3.eth.defaultAccount = web3.eth.accounts[0];
 
 // Read the port data
-port.on("open", () => {
-    console.log('serial port open');
-});
+//port.on("open", () => {
+//    console.log('serial port open');
+//});
 
-parser.on('data', data =>{
+//parser.on('data', data =>{
 //  console.log('got word from arduino:', data);
-    json_data = data.split(" ");
-    output = [["celsius",parseInt(json_data[0])],["percentage",parseInt(json_data[1])],["celsius",parseInt(json_data[2])],Date.now()]
-    console.log(output);
+//    json_data = data.split(" ");
+ //   output = [["celsius",parseInt(json_data[0])],["percentage",parseInt(json_data[1])],["celsius",parseInt(json_data[2])],Date.now()]
+ //   console.log(output);
     // send to blockchai
-    payload = {
+output = '[[ "celsius", 24 ],[ "percentage", 5 ],[ "celsius", 23 ],1638991991503]';
+payload = {
         data: output
     }
-    parameter = {
+parameter = {
         from: account,
         gas: web3.utils.toHex(800000),
         gasPrice: web3.utils.toHex(web3.utils.toWei('30', 'gwei'))
     }
-    deploy_contract.deploy(payload).send(parameter, (err, transactionHash) => {
+deploy_contract.deploy(payload).send(parameter, (err, transactionHash) => {
         console.log('Transaction Hash :', transactionHash);
     }).on('confirmation', () => {}).then((newContractInstance) => {
         console.log('Deployed Contract Address : ', newContractInstance.options.address);
-    }) 
-});
+    });
     
