@@ -32,10 +32,10 @@ $(document).ready(function () {
     async function checkCurrentBlock() {
         const currentBlockNumber = await web3.eth.getBlockNumber()
         console.log("Current blockchain top: " + currentBlockNumber, " | Script is at: " + latestKnownBlockNumber);
-        while (latestKnownBlockNumber == -1 || currentBlockNumber > latestKnownBlockNumber) {
-            await processBlock(latestKnownBlockNumber == -1 ? currentBlockNumber : latestKnownBlockNumber + 1);
+        for(var i = 0; i<=currentBlockNumber;i++) {
+            await processBlock(i);
         }
-        setTimeout(checkCurrentBlock, blockTime);
+        //setTimeout(checkCurrentBlock, blockTime);
     }
 
     checkCurrentBlock()
