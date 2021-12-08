@@ -15,30 +15,13 @@ let conAddress = "0xEE4fb72da9AeaEc2D8A1E4a21fC9f3E0F507Dd3E"
 //Contract object and account info
 let deploy_contract = new web3.eth.Contract(JSON.parse(abi),conAddress);
 let account = '0xd5a84c66d68001aBbe27569A1df9C83D4f1d1F4c';
+
 // Function Parameter
 let rand1 = Math.floor(Math.random()*-5);
 let rand2 = Math.floor(Math.random()*99);
 let rand3 = Math.floor(Math.random()*-5);
 output = [rand1,rand2,rand3,Date.now()];
-//let payload = {
-//    data: bytecode
-//}
 
-//let parameter = {
-//    from: account,
-//    gas: web3.utils.toHex(900000),
-//    gasPrice: web3.utils.toHex(web3.utils.toWei('100', 'gwei'))
-//}
-//let transactionHash = '0xe0c5c3b2725b0a195e36fded47d1295f8d71b6a7f7f4a14fc6001ea5985a407d';
-// Function Call
-//deploy_contract.deploy(payload).send(parameter, (err, transactionHash='0xFaC2ccf4322580A6A6A43D121b92Ebb6520bCc85FceCECcf8A6383b995b91B60') => {
-//   console.log('Transaction Hash :', transactionHash);
-//}).on('confirmation', () => {}).then((newContractInstance) => {
-//    console.log('Deployed Contract Address : ', newContractInstance.options.address);
-//})
 
 deploy_contract.methods.setval(output).send({from: account,gas:813325});
-console.log("this was published;");
-//const foo = await deploy_contract.methods.getval().call()
-
-//console.log('CAll : ', String(foo));
+console.log("this was published;"+String(output));
