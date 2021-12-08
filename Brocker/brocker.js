@@ -6,8 +6,8 @@ const parser = port.pipe(new Readline({ delimiter: '\n' }));
 var json_data;
 var output;
 // connect to session
-const web3 = new Web3(new Web3.providers.HttpProvider("http://172.27.63.201:7545"));
-var ethereumSessionInstance = new web3.eth.Contract([
+let conAddress = "0x008651ec1DC53170063FB9758145bfBd3d7994B6"
+let abi = [
 	{
 		"inputs": [],
 		"name": "getval",
@@ -220,7 +220,13 @@ var ethereumSessionInstance = new web3.eth.Contract([
 		"stateMutability": "view",
 		"type": "function"
 	}
-],"0x008651ec1DC53170063FB9758145bfBd3d7994B6");
+];
+let account = "0xEa5Da6f7bd0Ce4382e3C83F2D74aD7Aa39dEC801";
+var payload; 
+var parameter;
+const web3 = new Web3(new Web3.providers.HttpProvider("http://172.27.63.201:7545"));
+let deploy_contract = new web3.eth.Contract(JSON.parse(abi));
+//var ethereumSessionInstance = new web3.eth.Contract(abi,conAddress);
 //var ethereumSessionInstance = EthereumSession.at("0x008651ec1DC53170063FB9758145bfBd3d7994B6");
 web3.eth.defaultAccount = web3.eth.accounts[0];
 
@@ -234,8 +240,19 @@ parser.on('data', data =>{
     json_data = data.split(" ");
     output = [["celsius",parseInt(json_data[0])],["percentage",parseInt(json_data[1])],["celsius",parseInt(json_data[2])],Date.now()]
     console.log(output);
-    // send to blockchain
-    ethereumSessionInstance.setval(output);
-    console.log(ethereumSessionInstance.getval());
+    // send to blockchai
+    payload = {
+        data: output
+    }
+    parameter = {
+        from: account,
+        gas: web3.utils.toHex(800000),
+        gasPrice: web3.utils.toHex(web3.utils.toWei('30', 'gwei'))
+    }
+    deploy_contract.deploy(payload).send(parameter, (err, transactionHash) => {
+        console.log('Transaction Hash :', transactionHash);
+    }).on('confirmation', () => {}).then((newContractInstance) => {
+        console.log('Deployed Contract Address : ', newContractInstance.options.address);
+    }) 
 });
     
