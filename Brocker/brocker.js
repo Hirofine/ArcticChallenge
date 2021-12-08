@@ -6,7 +6,7 @@ const parser = port.pipe(new Readline({ delimiter: '\n' }));
 var json_data;
 var output;
 // connect to session
-const web3 = new Web3("http://172.27.63.201:7545")
+const web3 = new Web3(new Web3.providers.HttpProvider("http://172.27.63.201:7545"));
 var EthereumSession = web3.eth.contract([
 	{
 		"inputs": [],
