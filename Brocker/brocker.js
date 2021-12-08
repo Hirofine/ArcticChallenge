@@ -7,7 +7,7 @@ var json_data;
 var output;
 // connect to session
 let conAddress = "0x008651ec1DC53170063FB9758145bfBd3d7994B6"
-let abi = [
+let abi = String([
 	{
 		"inputs": [],
 		"name": "getval",
@@ -220,7 +220,7 @@ let abi = [
 		"stateMutability": "view",
 		"type": "function"
 	}
-];
+]);
 let account = "0xEa5Da6f7bd0Ce4382e3C83F2D74aD7Aa39dEC801";
 var payload; 
 var parameter;
