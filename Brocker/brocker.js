@@ -6,7 +6,7 @@ const parser = port.pipe(new Readline({ delimiter: '\n' }));
 var json_data;
 var output;
 // connect to session
-let conAddress = "0x008651ec1DC53170063FB9758145bfBd3d7994B6"
+let conAddress = "0xBD378FF3402E392619454ae66B3dA55AD4F0739a"
 let abi = String([
 	{
 		"inputs": [],
@@ -221,7 +221,7 @@ let abi = String([
 		"type": "function"
 	}
 ]);
-let account = "0xEa5Da6f7bd0Ce4382e3C83F2D74aD7Aa39dEC801";
+let account = "0x7c2088F378d3cc16b609f667af2326D560Fc8344";
 var payload; 
 var parameter;
 const web3 = new Web3(new Web3.providers.HttpProvider("http://172.27.63.201:7545"));
