@@ -1,13 +1,38 @@
 <!doctype html>
 <title>print the fucking data</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="test.css">
+
 <html>
     <body>
-        <div> 
-            <ul id="json"></ul>
-        </div>
+        <div class="row">
+            <div class="col-sm-6 text-center">
+              <label class="label label-success">Area Chart</label>
+              <div id="area-chart"></div>
+            </div>
+            <div class="col-sm-6 text-center">
+              <label class="label label-success">Line Chart</label>
+              <div id="line-chart"></div>
+            </div>
+            <div class="col-sm-6 text-center">
+              <label class="label label-success">Bar Chart</label>
+              <div id="bar-chart"></div>
+            </div>
+            <div class="col-sm-6 text-center">
+              <label class="label label-success">Bar stacked</label>
+              <div id="stacked"></div>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3 text-center">
+              <label class="label label-success">Pie Chart</label>
+              <div id="pie-chart"></div>
+            </div>
+      
+          </div>
+      
 
-        
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>   
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 

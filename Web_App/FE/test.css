@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #f1f2f6;
+    height: 100%;
+    width: 100%;
+   position: relative;
+  }
+
+  .expandable-list{
+    margin: 20px auto;
+    width: 100%;
+    overflow-y: auto;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+
+  .expandable-item {
+    background: white;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 0 4px 4px rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+  }
+
+  .expandable-item:first-of-type{
+    border-radius: 5px 5px 0 0;
+  }
+
+  .expandable-item:last-of-type{
+    border-radius: 0 0 5px 5px;
+
+  }
+
+  .expandable-header {
+    position: relative;
+    height: 30px;
+    font-weight: bolder;
+  }
+
+  .expandable-icon {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    transform: rotateZ(45deg);
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    background: #f368e0;
+    transition: all .3s;
+  }
+
+.expandable-item.active .expandable-icon{
+  transform: rotateZ(0);
+  background:rgb(255, 255, 255)
+}
+
+  .expandable-icon .line {
+    width: 15px;
+    height: 2px;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transition: all .4s;
+  }
+
+  .expandable-icon .line:nth-child(1) {
+    transform: rotateZ(45deg);
+  }
+
+  .expandable-icon .line:nth-child(2) {
+    transform: rotateZ(-45deg);
+  }
+
+  .expandable-item .expandable-body {
+    background: #f8efe4;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0 1em;
+    transition: all .5s ease-in-out;
+    height: 0px;
+  }
+
+  .expandable-item.active .expandable-body {
+    margin-top: 5px;
+    height: 500px;
+    
+    /*width: 400px;*/
+  }
+
+  .expandable-item.active .expandable-icon .line:nth-child(1) {
+    transform: rotateZ(0deg);
+  }
+
+  .expandable-item.active .expandable-icon .line:nth-child(2) {
+    transform: rotateZ(180deg);
+  }
+
+#area-chart,
+#line-chart,
+#bar-chart,
+#stacked,
+#pie-chart{
+  min-height: 250px;
+}

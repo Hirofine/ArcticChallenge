@@ -1,141 +1,58 @@
 <!doctype HTML>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href='https://cdn.oesmith.co.uk/morris-0.5.1.css'>
+  
 <link rel="stylesheet" href="style.css">
 <html>
-    <title>
-        Just another weather forecast application
-    </title>
 
-    <body>
-        ahahahahahahaha what a joke
+<head>
+  <meta charset=utf-8 />
+  <title>Morris.js Area Chart</title>
+</head>
 
-        <div class="container px-1 px-sm-4 py-5 mx-auto">
-          <div class="row d-flex justify-content-center">
-              <div class="card text-center pt-4 border-0">
-                  <h4 class="mb-0">Moscow</h4> <small class="text-muted mb-3">Red Square</small>
-                  <h2 class="large-font">-32&#176;</h2>
-                  <div class="text-center mt-3 mb-4"> <img class="city-symbol" src="https://i.imgur.com/QA63I0q.png"> </div>
-                  <div class="row d-flex px-3 mt-auto">
-                      <div class="d-flex flex-column block first-block"> <small class="text-muted mb-0">MON</small>
-                          <div class="text-center"><img class="symbol-img" src="https://i.imgur.com/BeWfUuG.png"></div>
-                          <h6><strong>-30&#176;</strong></h6>
-                      </div>
-                      <div class="d-flex flex-column block"> <small class="text-muted mb-0">TUE</small>
-                          <div class="text-center"><img class="symbol-img" src="https://i.imgur.com/Shrg84B.png"></div>
-                          <h6><strong>-29&#176;</strong></h6>
-                      </div>
-                      <div class="d-flex flex-column block active"> <small class="text-muted mb-0">WED</small>
-                          <div class="text-center"><img class="symbol-img" src="https://i.imgur.com/Shrg84B.png"></div>
-                          <h6><strong>-34&#176;</strong></h6>
-                      </div>
-                      <div class="d-flex flex-column block"> <small class="text-muted mb-0">THU</small>
-                          <div class="text-center"><img class="symbol-img" src="https://i.imgur.com/BeWfUuG.png"></div>
-                          <h6><strong>-30&#176;</strong></h6>
-                      </div>
-                      <div class="d-flex flex-column block last-block"> <small class="text-muted mb-0">FRI</small>
-                          <div class="text-center"><img class="symbol-img" src="https://i.imgur.com/BeWfUuG.png"></div>
-                          <h6><strong>-30&#176;</strong></h6>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-        <div class="wrapper">
-            <div class="sun"></div>
-            <div class="cloud">
-              <div class="cloud1">
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-              <div class="cloud1 c_shadow">
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-            
-            <div class="cloud_s">
-              <div class="cloud1">
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-              <div class="cloud1 c_shadow">
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-            
-            <div class="cloud_vs">
-              <div class="cloud1">
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-              <div class="cloud1 c_shadow">
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-            <div class="haze"></div>
-            <div class="haze_stripe"></div>
-            <div class="haze_stripe"></div>
-            <div class="haze_stripe"></div>
-            <div class="thunder"></div>
-            <div class="rain">
-               <ul>
-                 <li></li>
-                 <li></li>
-                 <li></li>
-              </ul>
-            </div>
-            <div class="sleet">
-               <ul>
-                 <li></li>
-                 <li></li>
-                 <li></li>
-              </ul>
-            </div>
-            <div class="text">
-              <ul>
-                <li>Mostly Sunny</li>
-                <li>Partly Sunny</li>
-                <li>Partly Cloudy</li>
-                <li>Mostly Cloudy</li>
-                <li>Cloudy</li>
-                <li>Hazy</li>
-                <li>Thunderstorm</li>
-                <li>Rain</li>
-                <li>Sleet</li>
-              </ul>
-            </div>
-          </div>
+<body>
+  <h3 class="text-primary text-center">
+    Morris js charts
+  </h3>
+  <div class="row">
+    <div class="col-sm-6 text-center">
+      <label class="label label-success">Area Chart</label>
+      <div id="area-chart"></div>
+    </div>
+    <div class="col-sm-6 text-center">
+      <label class="label label-success">Line Chart</label>
+      <div id="line-chart"></div>
+    </div>
+    <div class="col-sm-6 text-center">
+      <label class="label label-success">Bar Chart</label>
+      <div id="bar-chart"></div>
+    </div>
+    <div class="col-sm-6 text-center">
+      <label class="label label-success">Bar stacked</label>
+      <div id="stacked"></div>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+      <label class="label label-success">Pie Chart</label>
+      <div id="pie-chart"></div>
+    </div>
+
+  </div>
+
+  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js'></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
 
 
 
 
-
-    </body>
 
 
 </html>

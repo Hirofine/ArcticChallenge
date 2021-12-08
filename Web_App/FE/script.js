@@ -5,12 +5,13 @@ $(document).ready(function () {
 
     let latestKnownBlockNumber = -1;
     let blockTime = 5000;
-
+    var i =0;
     // Our function that will triggered for every block
     async function processBlock(blockNumber) {
         console.log("We process block: " + blockNumber);
         let block = await web3.eth.getBlock(blockNumber);
         console.log("new block :", block)
+        
         for (const transactionHash of block.transactions) {
             let transaction = await web3.eth.getTransaction(transactionHash);
             let transactionReceipt = await web3.eth.getTransactionReceipt(transactionHash);
@@ -19,10 +20,14 @@ $(document).ready(function () {
             // Do whatever you want here
             //$.getJSON('{"userId": 1, "id": 1,"title": "delectus aut autem","completed": false}', function (data) {
             //document.getElementById("json").textContent += "<li>" + JSON.stringify(transaction, undefined, 2) + "</li>";
-            var li = $('<li><input type="checkbox" name="' + transaction.r + '" id="' + transaction.hash + '"/>' +
-                '<label for="' + transaction.s + '"></label></li>');
-            li.find('label').text(String(transaction.s));
+            var li = $( '<div class="expandable-item" onclick="toggle(' + i + ')"><div class="expandable-header">' + 
+            transaction.hash + 
+            '<div class="expandable-icon"><div class="line"></div><div class="line"></div></div></div><div class="expandable-body"><div class="container">' + 
+            format_division(transaction.blockNumber, "Block Number") + format_division(transaction.from, "From") + format_division(transaction.to, "To") + format_division(transaction.value, "Data")
+             + '</div></div></div>');
+            //li.find('label').text(String(transaction.s));
             $('#json').append(li);
+            i++;
             //});
         }
         latestKnownBlockNumber = blockNumber;
@@ -39,4 +44,106 @@ $(document).ready(function () {
     }
 
     checkCurrentBlock()
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var temp = [
+        { y: '2014', a: 50},
+        { y: '2015', a: 65},
+        { y: '2016', a: 50},
+        { y: '2017', a: 75},
+        { y: '2018', a: 80},
+        { y: '2019', a: 90},
+        { y: '2020', a: 100},
+        { y: '2021', a: 115},
+        { y: '2022', a: 120},
+        { y: '2023', a: 145},
+        { y: '2024', a: 160}
+      ],
+      config = {
+        data: temp,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Temperature °C'],
+        fillOpacity: 0.6,
+        hideHover: 'auto',
+        behaveLikeLine: true,
+        resize: true,
+        pointFillColors:['#ffffff'],
+        pointStrokeColors: ['#de6fa1'],
+        lineColors:['#de6fa1'],
+        barColors:['#de6fa1']
+    };
+    config.element = 'temp-chart';
+    Morris.Line(config);
+
+    var hum = [
+        { y: '2014', a: 50},
+        { y: '2015', a: 65},
+        { y: '2016', a: 50},
+        { y: '2017', a: 75},
+        { y: '2018', a: 80},
+        { y: '2019', a: 90},
+        { y: '2020', a: 10},
+        { y: '2042', a: 12},
+        { y: '2022', a: 69},
+        { y: '2023', a: 42},
+        { y: '2024', a: 16}
+      ],
+      config = {
+        data: hum,
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Humidity %'],
+        fillOpacity: 0.6,
+        hideHover: 'auto',
+        behaveLikeLine: true,
+        resize: true,
+        pointFillColors:['#ffffff'],
+        pointStrokeColors: ['#de6fa1'],
+        lineColors:['#de6fa1'],
+        barColors:['#de6fa1']
+    };
+    config.element = 'hum-chart';
+    Morris.Line(config);
+    
+
 });
+
+toggle = (idx) => {
+    document.querySelectorAll('.expandable-item')[idx].classList.toggle('active');
+  }
+
+function format_division(parameter, title){
+    return '<div class="row"><div class="col-sm-4">' + title + '</div><div class="col-sm-8">' + parameter + '</div></div>';
+}
+
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+
