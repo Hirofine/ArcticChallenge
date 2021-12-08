@@ -7,7 +7,7 @@ var json_data;
 var output;
 // connect to session
 const web3 = new Web3(new Web3.providers.HttpProvider("http://172.27.63.201:7545"));
-var EthereumSession = web3.eth.contract([
+var EthereumSession = web3.eth.Contract([
 	{
 		"inputs": [],
 		"name": "getval",
@@ -220,8 +220,8 @@ var EthereumSession = web3.eth.contract([
 		"stateMutability": "view",
 		"type": "function"
 	}
-]);
-var ethereumSessionInstance = EthereumSession.at("0x008651ec1DC53170063FB9758145bfBd3d7994B6");
+],"0x008651ec1DC53170063FB9758145bfBd3d7994B6");
+//var ethereumSessionInstance = EthereumSession.at("0x008651ec1DC53170063FB9758145bfBd3d7994B6");
 web3.eth.defaultAccount = web3.eth.accounts[0];
 
 // Read the port data
