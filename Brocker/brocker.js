@@ -7,7 +7,7 @@ var json_data;
 var output;
 // connect to session
 const web3 = new Web3(new Web3.providers.HttpProvider("http://172.27.63.201:7545"));
-var EthereumSession = new web3.eth.Contract([
+var ethereumSessionInstance = new web3.eth.Contract([
 	{
 		"inputs": [],
 		"name": "getval",
