@@ -241,7 +241,7 @@ web3.eth.defaultAccount = web3.eth.accounts[0];
  //   output = [["celsius",parseInt(json_data[0])],["percentage",parseInt(json_data[1])],["celsius",parseInt(json_data[2])],Date.now()]
  //   console.log(output);
     // send to blockchai
-output = '[[ "celsius", 24 ],[ "percentage", 5 ],[ "celsius", 23 ],1638991991503]';
+output = '["celsius",24,"percentage",5,"celsius",23,1638991991503]';
 payload = {
         data: output
     }
