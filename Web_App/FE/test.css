@@ -94,7 +94,7 @@ body {
 
   .expandable-item.active .expandable-body {
     margin-top: 5px;
-    height: 500px;
+    height: 100px;
     
     /*width: 400px;*/
   }

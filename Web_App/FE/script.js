@@ -30,10 +30,10 @@ $(document).ready(function () {
             // Do whatever you want here
             //$.getJSON('{"userId": 1, "id": 1,"title": "delectus aut autem","completed": false}', function (data) {
             //document.getElementById("json").textContent += "<li>" + JSON.stringify(transaction, undefined, 2) + "</li>";
-            var li = $('<div class="expandable-item" onclick="toggle(' + i + ')"><div class="expandable-header">' +
+            var li = $('<div class="expandable-item" onclick="toggle(' + i + ')"><div class="expandable-header">Hash: ' +
                 transaction.hash +
                 '<div class="expandable-icon"><div class="line"></div><div class="line"></div></div></div><div class="expandable-body"><div class="container">' +
-                format_division(transaction.blockNumber, "Block Number") + format_division(transaction.from, "From") + format_division(transaction.to, "To") + format_division(transaction.value, "Data")
+                format_division(transaction.blockHash, "Block Hash") + format_division(transaction.blockNumber, "Block Number") + format_division(transaction.from, "From") + format_division(transaction.to, "To")
                 + '</div></div></div>');
             //li.find('label').text(String(transaction.s));
             $('#json').append(li);
@@ -42,6 +42,7 @@ $(document).ready(function () {
         }
         latestKnownBlockNumber = blockNumber;
     }
+    
 
     // This function is called every blockTime, check the current block number and order the processing of the new block(s)
     async function checkCurrentBlock() {
