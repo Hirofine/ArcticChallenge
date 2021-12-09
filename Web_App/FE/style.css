@@ -15,7 +15,7 @@ body {
 }
 
 .block {
-  width:20%;
+  width:100%;
   background-color: #ffe3e3;
   cursor: pointer;
   padding: 10px 0px
