@@ -1,5 +1,4 @@
 # ArcticChallenge
-arctic challenge blockchain bullshit
 
 
 Weather use case
