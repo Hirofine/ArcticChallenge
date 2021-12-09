@@ -2,8 +2,8 @@ $(document).ready(function () {
     let conAddress = "0xEE4fb72da9AeaEc2D8A1E4a21fC9f3E0F507Dd3E"
     let abi = '[{"inputs":[],"name":"getval","outputs":[{"components":[{"internalType":"int256","name":"t","type":"int256"},{"internalType":"uint256","name":"h","type":"uint256"},{"internalType":"int256","name":"hI","type":"int256"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"internalType":"structCrudApp.Temp[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"components":[{"internalType":"int256","name":"t","type":"int256"},{"internalType":"uint256","name":"h","type":"uint256"},{"internalType":"int256","name":"hI","type":"int256"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"internalType":"structCrudApp.Temp","name":"recTemp","type":"tuple"}],"name":"setval","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"weatherdb","outputs":[{"internalType":"int256","name":"t","type":"int256"},{"internalType":"uint256","name":"h","type":"uint256"},{"internalType":"int256","name":"hI","type":"int256"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"stateMutability":"view","type":"function"}]';
     let account = "0xd5a84c66d68001aBbe27569A1df9C83D4f1d1F4c";
-    //const web3 = new Web3("http://172.27.63.201:7545");
-    const web3 = new Web3("http://192.168.137.216:7545");
+    const web3 = new Web3("http://172.27.63.201:7545");
+    //const web3 = new Web3("http://192.168.137.216:7545");
     let deploy_contract = new web3.eth.Contract(JSON.parse(abi), conAddress);
     let latestKnownBlockNumber = -1;
     let blockTime = 5000;
