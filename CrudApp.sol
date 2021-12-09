@@ -5,26 +5,20 @@ pragma solidity ^0.8.7;
 pragma abicoder v2;
 
 contract CrudApp {
-    
-    struct S_standard{
-        string unit;
-        int value;
-    }
 
-
-    struct Temperature{
-        S_standard temp;
-        S_standard humidity;
-        S_standard heatIndex;
+    struct Temp{
+        int t;
+        uint h;
+        int hI;
         uint timestamp;
     }
-    Temperature[] public weatherdb; 
+    Temp[] public weatherdb; 
 
-   function setval(Temperature memory recTemperature) public{
-       weatherdb.push(recTemperature);
+   function setval(Temp memory recTemp) public{
+       weatherdb.push(recTemp);
    }
 
-    function getval() public view returns(Temperature[] memory)
+    function getval() public view returns(Temp[] memory)
     {
         return weatherdb;
     }
