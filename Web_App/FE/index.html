@@ -15,6 +15,7 @@
 <header class="colorHeader" style="text-align:center">
   <h1>WEATHER USE CASE - USING BLOCKCHAIN</h1>
 </header>
+
 <body>
 
 
@@ -26,21 +27,23 @@
 
     <!-- Full-width images with number and caption text -->
     <div class="mySlides">
-      <div class="numbertext">1 / 2</div>
+      <div class="numbertext">1 / 3</div>
       <div class="container px-1 px-sm-4 py-5 mx-auto" style="width:100%">
         <div class="row d-flex justify-content-center" style="width:100%">
           <div class="card text-center pt-4 border-0">
             <h4 class="mb-0">Skellefteå</h4> <small class="text-muted mb-3">Never hot enough</small>
             <h2 class="large-font" id=main_temp>
-              
+
             </h2>
             <div class="text-center mt-3 mb-4"> <img class="city-symbol" src="Romain_Hiro_full.png"> </div>
             <div class="row d-flex px-3 mt-auto">
-              <div class="d-flex flex-column block first-block"> <small class="text-muted mb-0"><h4>Real Feel</h4></small>
+              <div class="d-flex flex-column block first-block"> <small class="text-muted mb-0">
+                  <h4>Real Feel</h4>
+                </small>
                 <div class="text-center"></div>
                 <h3 id=feel-0><strong></strong></h3>
               </div>
-             
+
             </div>
           </div>
         </div>
@@ -49,48 +52,68 @@
 
 
     <div class="mySlides">
-      <div class="numbertext">2 / 2</div>
+      <div class="numbertext">2 / 3</div>
       <div class="container px-1 px-sm-4 py-5 mx-auto" style="width:100%">
-        <div><h2>Transactions</h2></div>
+        <div>
+          <h2>Transactions</h2>
+        </div>
         <div class="expandable-list" id=json>
         </div>
       </div>
     </div>
 
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-  <br>
-
-  <!-- The dots/circles -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-
-
-
-  </div>
-  <div>
-
-    <div class="row">
-      <div class="col-sm-6 text-center">
-        <label class="label label-success"><h3>TEMPERATURE OVER TIME</h3></label>
-        <div id="temp-chart"></div>
+    <div class="mySlides">
+      <div class="numbertext">3/3</div>
+      <div class="container px-1 px-sm-4 py-5 mx-auto" style="width:100%">
+        <div>
+          <h2>All Historic Data</h2>
+        </div>
+        <div><li id=all_data>
+          <ul>Temperature | Humidity | Real Feel | Timestamp</ul>
+        </li>
+        </div>
+      </div>
       </div>
 
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
 
-      <div class="col-sm-6 text-center">
-        <label class="label label-success"><h3>HUMIDITY OVER TIME</h3></label>
-        <div id="hum-chart"></div>
-      </div>
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+
 
 
     </div>
-  </div>
-  <div>
+    <div>
 
-  </div>
+      <div class="row">
+        <div class="col-sm-6 text-center">
+          <label class="label label-success">
+            <h3>TEMPERATURE OVER TIME</h3>
+          </label>
+          <div id="temp-chart"></div>
+        </div>
+
+
+        <div class="col-sm-6 text-center">
+          <label class="label label-success">
+            <h3>HUMIDITY OVER TIME</h3>
+          </label>
+          <div id="hum-chart"></div>
+        </div>
+
+
+      </div>
+    </div>
+    <div>
+
+    </div>
   </div>
   <div class="footer-basic">
     <footer>
@@ -109,7 +132,8 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+  <script
+    src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js'></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>

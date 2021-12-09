@@ -105,7 +105,11 @@ $(document).ready(function () {
         Morris.Line(config);
         $('#main_temp').append(parseInt(value[value.length-1].t) + "°C");
         $('#feel-0').append(parseInt(value[value.length-1].hI) + "°C");    
-
+        var all_data = ""
+        for(var i = 0; i < value.length; i++){
+            all_data += "<ul>" + value[i].t + " | " + value[i].h + " | " + value[i].hI + " | " + value[i].timestamp + "</ul>"
+        }
+        $('#all_data').append(all_data);
     }
     draw_graphs();
 });
