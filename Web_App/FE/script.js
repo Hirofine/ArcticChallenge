@@ -93,7 +93,7 @@ $(document).ready(function () {
         $('#feel-0').append(parseInt(value[value.length - 1].hI) + "°C");
         var all_data = ""
         for (var i = 0; i < value.length; i++) {
-            all_data += '<div class="row" style="border-style:solid"><div class="col" style="border-right-style: dotted;">' + value[i].t + '</div><div class="col" style="border-left-style: dotted;border-right-style: dotted;">' + value[i].h + '</div><div class="col" style="border-left-style: dotted;border-right-style: dotted;">' + value[i].hI + '</div><div class="col" style="border-left-style: dotted;">' + value[i].timestamp + '</div></div>';
+            all_data += '<div class="col-sm-3" style="border-style:solid">'+ value[i].t +' </div><div class="col-sm-3" style="border-style:solid">' + value[i].h + '</div><div class="col-sm-3" style="border-style:solid">' + value[i].hI + '</div><div class="col-sm-3" style="border-style:solid">' + value[i].timestamp + '</div>';
             //all_data += "<ul><span>" + value[i].t + " </span><span> " + value[i].h + " </span><span> " + value[i].hI + " </span><span> " + value[i].timestamp + "</span></ul>"
         }
         $('#all_data').append(all_data);
